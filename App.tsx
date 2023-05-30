@@ -1,22 +1,19 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, Theme } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import TodoList from './screens/TodoList'
-import { store } from './redux'
-import { Provider } from 'react-redux'
-import CreateTodo from './screens/CreateTodo'
-const Tab = createBottomTabNavigator()
+import { Provider, useSelector } from 'react-redux'
+import BlogStack from './navigation/stack/BlogStack'
+import store, { RootState } from './redux'
+import MainNavigator from './navigation/MainNavigator'
+
 const App = () => {
+
+
+
   return (
     <Provider store={store}>
-
-      <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen name='Todos' component={TodoList} />
-          <Tab.Screen name='Create' component={CreateTodo} />
-        </Tab.Navigator>
-      </NavigationContainer>
+      <MainNavigator />
     </Provider>
   )
 }
